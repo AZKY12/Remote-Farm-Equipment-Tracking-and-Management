@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -72.1, "left": -43.4, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 13.42, "left": 127.12, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -135.7, "left": -125, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": -87.7, "left": -211.4, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -128.4,
+      "left": -34.6,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": -70.8, "left": -265, "attrs": { "color": "red" } },
+    { "type": "chip-rfid", "id": "chip1", "top": -171.78, "left": 139.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "imu1:GND", "black", [ "h162.9", "v-67.3", "h-28.88" ] ],
+    [ "esp:VIN", "imu1:VCC", "red", [ "v38.4", "h249.6", "v-105.6" ] ],
+    [ "imu1:SCL", "esp:D22", "green", [ "v0" ] ],
+    [ "imu1:SDA", "esp:D21", "green", [ "v-28.8", "h-115.12" ] ],
+    [ "esp:D34", "pot1:SIG", "green", [ "h0" ] ],
+    [ "esp:GND.2", "pot1:GND", "black", [ "h0" ] ],
+    [ "esp:3V3", "pot1:VCC", "red", [ "v48", "h-115.5" ] ],
+    [ "pot2:SIG", "esp:D35", "green", [ "v0" ] ],
+    [ "pot2:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot2:VCC", "esp:3V3", "red", [ "v153.6", "h220.3" ] ],
+    [ "esp:GND.2", "led1:C", "black", [ "h0" ] ],
+    [ "esp:GND.2", "led2:C", "black", [ "h0" ] ],
+    [ "led1:A", "esp:D5", "green", [ "v230.4", "h76.8", "v-124.8" ] ],
+    [ "led2:A", "esp:D18", "green", [ "v182.4", "h316.8", "v-144" ] ],
+    [ "chip1:SS", "esp:D19", "blue", [ "h49.81", "v-9.6" ] ],
+    [ "chip1:IRQ", "esp:D4", "magenta", [ "h9.6", "v172.8" ] ],
+    [ "chip1:SCK", "esp:D2", "purple", [ "v57.6", "h-113.39", "v144" ] ],
+    [ "chip1:MOSI", "esp:D15", "cyan", [ "h40.21", "v249.6", "h-163.2", "v-38.4" ] ],
+    [ "chip1:VCC", "esp:3V3", "red", [ "h-28.8", "v9.6" ] ],
+    [ "chip1:GND", "esp:GND.1", "black", [ "h-57.6", "v230.4" ] ],
+    [ "chip1:RST", "esp:D25", "yellow", [ "h-48", "v172.8" ] ],
+    [ "chip1:MISO", "esp:D12", "violet", [ "h-17.39", "v-28.8", "h-537.6", "v230.4" ] ]
+  ],
+  "dependencies": {}
+}

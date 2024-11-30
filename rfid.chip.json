@@ -1,0 +1,15 @@
+{
+  "name": "rfid",
+  "author": "musthaq",
+  "pins": [
+    "VCC",
+    "GND",
+    "RST",
+    "IRQ",
+    "SCK",
+    "MOSI",
+    "MISO",
+    "SS"
+  ],
+  "controls": []
+}
